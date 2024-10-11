@@ -4,7 +4,7 @@
 
 **Using mock api for fetch data**
 
-https://my-json-server.typicode.com/Rian-Sanjaya/product_list_db_json/products
+https://my-json-server.typicode.com/mtegarps/product_list_db_json/products
 
 ### Create using Next.js
 
