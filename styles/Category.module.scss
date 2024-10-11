@@ -1,0 +1,143 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 66px 10px 30px 10px;
+}
+
+.grid {
+  display: grid;
+  grid-auto-flow: row dense;
+  grid-template-columns: 100%;
+  margin: 0 0 20px 0;
+
+  .item {
+    width: 100%;
+
+    .item_inner {
+      padding: 0px 5px 10px 5px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      .item_card {
+        background: #F4F4F6;
+        border-radius: 10px;
+        position: relative;
+
+        .item_img_wrap {
+          aspect-ratio: 0.88;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+        }
+
+        .item_info {
+          display: flex;
+          flex-direction: column;
+          gap: 3px;
+          position: absolute;
+          left: 16px;
+          right: 16px;
+          bottom: 16px
+        }
+      }
+
+      &:hover {
+        .item_card {
+          background: #EEEEF0;
+
+          .item_img_wrap {
+
+            .img_spacer {
+              margin: -16px 0 0 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.img_spacer {
+  width: 62%;
+  aspect-ratio: 1 / 1;
+  transition: margin 220ms ease-in-out;
+  position: absolute;
+  z-index: 2;
+
+  &>img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.stack {
+  display: flex;
+}
+
+.stack.horizontal {
+  align-items: center;
+  gap: 16px;
+}
+
+.stack.horizontal.bulleted>* {
+  position: relative;
+}
+
+.stack.horizontal.bulleted>*::after {
+  content: "\00B7";
+  position: absolute;
+  right: -10px;
+}
+
+.stack.horizontal.bulleted>*:last-child::after {
+  content: "";
+}
+
+.text_ellipsis {
+  flex: 1;
+  min-width: 0;
+}
+
+.text_ellipsis>* {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (min-width: 768px) {
+  .container {
+    min-height: calc(100% - 112px);
+    padding: 56px 14px;
+  }
+
+  .grid {
+    grid-template-columns: 50% 50%;
+    margin: 0 0 55px 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: 33.33% 33.33% 33.33%;
+
+    .item.large {
+      grid-column: auto / span 2;
+      grid-row: auto / span 2;
+    }
+  }
+}
+
+@media (min-width: 1440px) {
+  .grid {
+    grid-template-columns: 25% 25% 25% 25%;
+
+    .item.large {
+      grid-column: auto / span 2;
+      grid-row: auto / span 2;
+    }
+  }
+}

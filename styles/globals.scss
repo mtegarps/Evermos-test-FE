@@ -1,0 +1,149 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  display: inline-flex;
+  flex-shrink: 0;
+  color: inherit;
+  text-decoration: none;
+  gap: 4px;
+}
+
+span {
+  font-size: 12px;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+.text_secondary {
+  color: rgba(0, 0, 0, 0.75)
+}
+
+.text_tertiary {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.react-star-rate.react-star-rate--ltr {
+  font-size: 18px;
+}
+
+$width__sidebar: 200px;
+
+.sidebar {
+  width: $width__sidebar;
+  position: fixed;
+  z-index: 10002;
+  height: 100%;
+  background-color: #fff;
+  transition: .7s;
+  
+  &.is_closed {
+    transform: translateX(-200px);
+  }
+}
+
+.hamburger_menu {
+  position: fixed;
+  top: 20px;
+  z-index: 10002;
+  margin-left: $width__sidebar + 16px;
+  height: 26px;
+  width: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: .7s;
+  cursor: pointer;
+
+  .line {
+    display: block;
+    height: 4px;
+    width: 100%;
+    border-radius: 10px;
+    background: #0e2432;
+  }
+
+  .line1 {
+    transform-origin: 0% 0%;
+    transition: transform 0.4s ease-in-out;
+  }
+
+  .line2 {
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .line3 {
+    transform-origin: 0% 100%;
+    transition: transform 0.4s ease-in-out;
+  }
+
+  &.is_closed {
+    transform: translateX(-200px);
+  }
+
+  &:not(.is_closed) {
+    .line1 {
+      display: block;
+      transform: rotate(45deg);
+    }
+  
+    .line2 {
+      opacity: 0;
+    }
+  
+    .line3 {
+      display: block;
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+.fullscreen-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10001;
+  background: rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.fullscreen-overlay.closed {
+  display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    color: white;
+    background: black;
+  }
+}
+
+@media (min-width: 768px) {
+  .sidebar {
+    transform: translateX(-200px);
+  }
+
+  .hamburger_menu {
+    display: none;
+  }
+
+  .fullscreen-overlay {
+    display: none;
+  }
+}
